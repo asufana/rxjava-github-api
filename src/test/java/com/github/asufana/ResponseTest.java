@@ -9,7 +9,10 @@ import org.apache.http.client.*;
 import org.apache.http.client.fluent.*;
 import org.junit.*;
 
-public class HttpClientTest {
+import com.github.asufana.dtos.*;
+import com.google.gson.reflect.*;
+
+public class ResponseTest {
     
     private final String name = "asufana";
     
@@ -18,8 +21,10 @@ public class HttpClientTest {
         final Content content = HttpClient.get(GithubClient.BASE_USER_URL
                 + name);
         assertThat(content, is(notNullValue()));
-        assertThat(content.asString(), is(notNullValue()));
-        System.out.println(content.asString());
+        
+        final UserDto user = Response.parse(content)
+                                     .toObject(new TypeToken<UserDto>() {});
+        assertThat(user, is(notNullValue()));
+        assertThat(user.login(), is(name));
     }
-    
 }
