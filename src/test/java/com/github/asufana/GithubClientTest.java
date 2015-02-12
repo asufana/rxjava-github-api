@@ -36,7 +36,7 @@ public class GithubClientTest {
     }
     
     @Test
-    public void testUserAndReposSync() throws Exception {
+    public void testUserAndReposSequential() throws Exception {
         final Observable<UserDto> user = new GithubClient().user(name);
         assertThat(user, is(notNullValue()));
         
@@ -47,7 +47,5 @@ public class GithubClientTest {
             assertThat(repoName, is(notNullValue()));
             System.out.println("RepoName: " + repoName);
         });
-        
     }
-    
 }
