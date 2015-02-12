@@ -1,18 +1,22 @@
 package com.github.asufana.dtos;
 
-import lombok.Value;
+import java.util.*;
+
+import lombok.*;
 import lombok.experimental.*;
-import rx.*;
 
 import com.github.asufana.*;
 
-@Value
+@Getter
 @Accessors(fluent = true)
 public class UserDto {
     
     private String login;
     
-    public Observable<RepositoryDto> fetchRepositories() {
-        return new GithubClient().repository(login);
+    @Setter
+    private List<RepositoryDto> repositories;
+    
+    public rx.Observable<RepositoryDto> fetchRepositories() {
+        return new GithubClient().repositories(login);
     }
 }
