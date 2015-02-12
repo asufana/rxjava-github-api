@@ -23,4 +23,15 @@ public class GithubClientTest {
             System.out.println("LoginName: " + loginName);
         });
     }
+    
+    @Test
+    public void testRepository() throws Exception {
+        final Observable<RepositoryDto> repositories = new GithubClient().repository(name);
+        assertThat(repositories, is(notNullValue()));
+        repositories.forEach(r -> {
+            final String repoName = r.name();
+            assertThat(repoName, is(notNullValue()));
+            System.out.println("RepoName: " + repoName);
+        });
+    }
 }

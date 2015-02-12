@@ -14,17 +14,17 @@ import com.google.gson.reflect.*;
 
 public class ResponseTest {
     
-    private final String name = "asufana";
+    private final String userName = "asufana";
     
     @Test
     public void test() throws ClientProtocolException, IOException {
-        final Content content = HttpClient.get(GithubClient.BASE_USER_URL
-                + name);
+        final Content content = HttpClient.get(GithubClient.userApiUrl(userName));
         assertThat(content, is(notNullValue()));
         
         final UserDto user = Response.parse(content)
                                      .toObject(new TypeToken<UserDto>() {});
         assertThat(user, is(notNullValue()));
-        assertThat(user.login(), is(name));
+        assertThat(user.login(), is(userName));
+        System.out.println("LoginUser: " + user.login());
     }
 }
