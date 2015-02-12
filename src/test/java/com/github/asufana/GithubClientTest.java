@@ -34,4 +34,20 @@ public class GithubClientTest {
             System.out.println("RepoName: " + repoName);
         });
     }
+    
+    @Test
+    public void testUserAndReposSync() throws Exception {
+        final Observable<UserDto> user = new GithubClient().user(name);
+        assertThat(user, is(notNullValue()));
+        
+        final Observable<RepositoryDto> repositories = user.flatMap(UserDto::fetchRepositories);
+        assertThat(repositories, is(notNullValue()));
+        repositories.forEach(r -> {
+            final String repoName = r.name();
+            assertThat(repoName, is(notNullValue()));
+            System.out.println("RepoName: " + repoName);
+        });
+        
+    }
+    
 }
