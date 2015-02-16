@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/asufana/rxjava-githubapi.svg?branch=master)](https://travis-ci.org/asufana/rxjava-githubapi)
+
 # rxjava-GitHub API
 
 GitHub API orchestration with RxJava
