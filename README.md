@@ -7,7 +7,7 @@ GitHub API orchestration with RxJava
 
 ```
 $ git clone https://github.com/asufana/rxjava-githubapi.git
-$ cd rxjava-github
+$ cd rxjava-githubapi
 $ mvn install
 ```
 
