@@ -1,5 +1,5 @@
 
-[![Build Status](https://travis-ci.org/asufana/rxjava-githubapi.svg?branch=master)](https://travis-ci.org/asufana/rxjava-githubapi)
+[![Build Status](https://travis-ci.org/asufana/rxjava-github-api.svg?branch=master)](https://travis-ci.org/asufana/rxjava-github-api)
 
 # rxjava-GitHub API
 
